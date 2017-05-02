@@ -1,2 +1,18 @@
 ---
 # local
+- hosts: localhost
+  gather_facts: yes
+  #user: root
+  become: true
+
+  vars:
+
+    # Directory to where repository will be cloned
+    workdir: /var/log/ansible  
+
+  tasks:
+
+    - name: Create local directory to work from
+      file: path={{workdir}} state=directory owner=root group=root mode=0751
+
+  
